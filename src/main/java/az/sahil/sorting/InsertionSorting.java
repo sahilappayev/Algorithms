@@ -13,15 +13,15 @@ public class InsertionSorting {
         int[] arr = {5, -3, 22, 0, 17, -11};
 
         //birinci element siralanmish element kimi qebul edilir
-        //ve ilk siralanmamish element kimi 1-ci indeksli elemetden bashlayir
+        //ve ilk siralanmamish element kimi 1-ci indeksli elemetden bashlayiriq
         for (int firstUnsortedIndex = 1; firstUnsortedIndex < arr.length;
              firstUnsortedIndex++) {
             int newElement = arr[firstUnsortedIndex];
 
-            //ilk siralanmamish elementle siralanmish elementi muqayise edir
+            //ilk siralanmamish elementle siralanmish elementleri muqayise edirik
             for (int i = firstUnsortedIndex; i > 0; i--) {
                 if (arr[i - 1] > newElement) {
-                    //her dovrde yerdeyishme edir
+                    //her dovrde yerdeyishme edirlir
                     shift(arr, i, i - 1);
                 }
             }

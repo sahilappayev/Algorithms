@@ -14,14 +14,14 @@ public class BubbleSorting {
 
         int[] arr = {5, -3, 22, 0, 17, -11};
 
-        //sonuncu siralanmamish elementin indeksinden bashlayir
+        //sonuncu siralanmamish elementin indeksinden bashlayiriq
         for (int lastUnsortedIndex = arr.length - 1; lastUnsortedIndex > 0;
              lastUnsortedIndex--) {
 
-            //o-ci indeksden sonuncu siralanmamish elemente kimi yanashi elementleri yoxlayir
+            //o-ci indeksden sonuncu siralanmamish elemente kimi yanashi elementleri yoxlayiriq
             for (int i = 0; i < lastUnsortedIndex; i++) {
                 if (arr[i] > arr[i + 1]) {
-                    //her dovrde elementlerin yerini deyishir
+                    //her dovrde elementlerin yerini deyishirik
                     shift(arr, i, i + 1);
                 }
             }
