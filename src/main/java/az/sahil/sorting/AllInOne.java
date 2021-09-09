@@ -6,7 +6,9 @@ public class AllInOne {
 
         int[] arr = {2, 8, 3, 7, 15, 74, -8, 72, -15};
 
-        for (int i : shellSorting(arr)) {
+        mergeSorting(arr, new int[arr.length], 0, arr.length - 1);
+
+        for (int i : arr) {
             System.out.println(i);
         }
 
@@ -92,5 +94,39 @@ public class AllInOne {
             }
         }
         return arr;
+    }
+
+    /**
+     * Merge Sorting
+     * Not an in-pace algorithm
+     * Stable algorithm
+     * O(nlogn) time complexity
+     */
+    static void mergeSorting(int[] arr, int[] temp, int leftStart, int rightEnd) {
+        if (leftStart >= rightEnd)
+            return;
+        int mid = (leftStart + rightEnd) / 2;
+        mergeSorting(arr, temp, leftStart, mid);
+        mergeSorting(arr, temp, mid + 1, rightEnd);
+        merge(arr, temp, leftStart, rightEnd);
+
+    }
+
+    static void merge(int[] arr, int[] temp, int leftStart, int rightEnd) {
+        int leftEnd = (leftStart + rightEnd) / 2;
+        int rightStart = leftEnd + 1;
+        int size = rightEnd - leftStart + 1;
+
+        int left = leftStart;
+        int right = rightStart;
+        int index = leftStart;
+
+        while (left <= leftEnd && right <= rightEnd) {
+            temp[index++] = arr[left] <= arr[right] ? arr[left++] : arr[right++];
+        }
+
+        System.arraycopy(arr, left, temp, index, leftEnd - left + 1);
+        System.arraycopy(arr, right, temp, index, rightEnd - right + 1);
+        System.arraycopy(temp, leftStart, arr, leftStart, size);
     }
 }

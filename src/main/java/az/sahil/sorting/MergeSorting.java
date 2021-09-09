@@ -1,9 +1,5 @@
 package az.sahil.sorting;
 
-import java.util.Arrays;
-
-import static az.sahil.util.AlgorithmUtil.shift;
-
 /**
  * Not an in-pace algorithm
  * Stable algorithm
@@ -17,8 +13,8 @@ public class MergeSorting {
 
         mergeSort(arr, 0, arr.length);
 
-        for (int i = 0; i < arr.length; i++) {
-            System.out.println(arr[i]);
+        for (int j : arr) {
+            System.out.println(j);
         }
     }
 
