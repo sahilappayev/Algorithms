@@ -43,13 +43,14 @@ public class AllInOne {
         for (int lstUnsrtIndex = arr.length - 1; lstUnsrtIndex > 0; lstUnsrtIndex--) {
             int largestIndex = 0;
             for (int i = 1; i <= lstUnsrtIndex; i++) {
-                if (arr[largestIndex] < arr[i]) {
+                if (arr[largestIndex] <= arr[i]) {
                     largestIndex = i;
                 }
-                int temp = arr[i];
-                arr[i] = arr[largestIndex];
-                arr[largestIndex] = temp;
+
             }
+            int temp = arr[lstUnsrtIndex];
+            arr[lstUnsrtIndex] = arr[largestIndex];
+            arr[largestIndex] = temp;
         }
         return arr;
     }
