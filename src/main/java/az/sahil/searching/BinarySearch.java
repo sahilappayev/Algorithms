@@ -9,7 +9,7 @@ public class BinarySearch {
 
     public static void main(String[] args) {
 
-        int a = 5, b =7 , c = 8;
+        int a = 5, b = 7, c = 8;
 
         int[] arr = {1, 5, 9, 12, 65, 128, 129, 335, 345, 365};
 
@@ -26,28 +26,28 @@ public class BinarySearch {
      * [p-----------q-----------r]
      */
     public static int binarySearch(int[] arr, int value) {
-        int p = 0;
-        int r = arr.length - 1;
-        while (p <= r) {
-            int q = (p + r) / 2;
-            if (arr[q] == value) return q;
-            if (arr[q] > value) r = q - 1;
-            else p = q + 1;
+        int low = 0;
+        int high = arr.length - 1;
+        while (low <= high) {
+            int mid = (low + high) / 2;
+            if (arr[mid] == value) return mid;
+            if (arr[mid] > value) high = mid - 1;
+            else low = mid + 1;
         }
         return -1;
     }
 
-    public static int recursiveBinarySearch(int[] arr, int p, int r, int value) {
-        if (p > r) {
+    public static int recursiveBinarySearch(int[] arr, int low, int high, int value) {
+        if (low > high) {
             return -1;
         }
-        int q = (p + r) / 2;
-        if (arr[q] == value) {
-            return q;
-        } else if (arr[q] > value) {
-            return recursiveBinarySearch(arr, p, q - 1, value);
+        int mid = (low + high) / 2;
+        if (arr[mid] == value) {
+            return mid;
+        } else if (arr[mid] > value) {
+            return recursiveBinarySearch(arr, low, mid - 1, value);
         } else {
-            return recursiveBinarySearch(arr, q + 1, r, value);
+            return recursiveBinarySearch(arr, mid + 1, high, value);
         }
     }
 
