@@ -1,24 +1,58 @@
 package az.sahil.LeetCode;
 
-import java.util.Date;
+import lombok.SneakyThrows;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
-public class LeetCodeAlgorithims {
+public class LeetCodeAlgorithms {
 
+    @SneakyThrows
     public static void main(String[] args) {
 
+        boolean a = true;
 
-        System.out.println(new Date().getTime());
-        System.out.println(romanToInt("MMMXLV"));
-        System.out.println(new Date().getTime());
-        System.out.println(romanToInt2("MMMXLV"));
-        System.out.println(new Date().getTime());
+        first:
+        {
+            System.out.println("First started");
+            second:
+            {
+                System.out.println("Second started");
+                third:
+                {
+                    System.out.println("Third started");
+                    if (true) break second;
+                    System.out.println("Third completed");
+                }
+                System.out.println("Second completed");
+            }
+            System.out.println("First completed");
+        }
+
+
+//        int i = 100, j = 200 ;
+//        while (++i < --j);
+//        System.out.println("Midpoint is " + i +" , " + j);
+
+
+//        System.out.println(new Date().getTime());
+//        System.out.println(romanToInt("MMMXLV"));
+//        System.out.println(new Date().getTime());
+//        System.out.println(romanToInt2("MMMXLV"));
+//        System.out.println(new Date().getTime());
 
     }
 
-    private static int getint(char c) {
+    private static boolean isPrime(int num) {
+        if (num < 2) return false;
+        for (int i = 2; i <= num / i; i++) {
+            if (num % i == 0) return false;
+        }
+        return true;
+    }
+
+    private static int getInt(char c) {
         switch (c) {
             case 'I':
                 return 1;
@@ -41,10 +75,6 @@ public class LeetCodeAlgorithims {
     public static int climbStairs(int n) {
 
 
-
-
-
-
         return 0;
     }
 
@@ -55,7 +85,7 @@ public class LeetCodeAlgorithims {
 
         for (int i = s.length() - 1; i >= 0; i--) {
 
-            int current = getint(s.charAt(i));
+            int current = getInt(s.charAt(i));
             if (current >= prev) {
                 result += current;
             } else {
