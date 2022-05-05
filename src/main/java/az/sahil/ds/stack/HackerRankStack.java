@@ -12,7 +12,7 @@ public class HackerRankStack {
 
     /**
      * Maximum Element
-     * https://www.hackerrank.com/challenges/maximum-element/problem?isFullScreen=true
+     * <a href="https://www.hackerrank.com/challenges/maximum-element/problem?isFullScreen=true">https://www.hackerrank.com/challenges/maximum-element/problem?isFullScreen=true</a>
      */
     public static List<Integer> getMax(List<String> operations) {
         Stack<Integer> stack = new Stack<>();
@@ -41,7 +41,7 @@ public class HackerRankStack {
 
     /**
      * Equal Stacks
-     * https://www.hackerrank.com/challenges/equal-stacks/problem?isFullScreen=true
+     * <a href="https://www.hackerrank.com/challenges/equal-stacks/problem?isFullScreen=true">https://www.hackerrank.com/challenges/equal-stacks/problem?isFullScreen=true</a>
      */
     public static int equalStacks(List<Integer> h1, List<Integer> h2, List<Integer> h3) {
         Stack<Integer> s1 = new Stack<>();
