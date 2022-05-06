@@ -1,27 +1,31 @@
 package az.sahil.hackerrank.problemsolving;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class PSBasic {
 
     public static void main(String[] args) {
-        SinglyLinkedListNode node1 = new SinglyLinkedListNode(383);
-        SinglyLinkedListNode node2 = new SinglyLinkedListNode(484);
-        SinglyLinkedListNode node3 = new SinglyLinkedListNode(392);
-        SinglyLinkedListNode node4 = new SinglyLinkedListNode(475);
-        SinglyLinkedListNode node5 = new SinglyLinkedListNode(321);
-        node1.next = node2;
-        node2.next = node3;
-        node3.next = node4;
-        node4.next = node5;
+//        SinglyLinkedListNode node1 = new SinglyLinkedListNode(383);
+//        SinglyLinkedListNode node2 = new SinglyLinkedListNode(484);
+//        SinglyLinkedListNode node3 = new SinglyLinkedListNode(392);
+//        SinglyLinkedListNode node4 = new SinglyLinkedListNode(475);
+//        SinglyLinkedListNode node5 = new SinglyLinkedListNode(321);
+//        node1.next = node2;
+//        node2.next = node3;
+//        node3.next = node4;
+//        node4.next = node5;
+//
+//        SinglyLinkedListNode result = insertNodeAtHead(node1, 5);
+//
+//        while (result.next != null){
+//            System.out.println(result.data);
+//            result = result.next;
+//        }
 
-        SinglyLinkedListNode result = insertNodeAtHead(node1, 5);
 
-        while (result.next != null){
-            System.out.println(result.data);
-            result = result.next;
-        }
+        System.out.println(rotateLeft(4, Arrays.asList(1, 2, 3, 4, 5)));
 
 
     }
@@ -89,12 +93,14 @@ public class PSBasic {
      * <a href="https://www.hackerrank.com/challenges/array-left-rotation/problem?isFullScreen=true">https://www.hackerrank.com/challenges/array-left-rotation/problem?isFullScreen=true</a>
      */
     public static List<Integer> rotateLeft(int d, List<Integer> arr) {
-        for (int i = d; i > 0; i--) {
-            int temp = arr.get(i - 1);
-            arr.set(i - 1, arr.get(i));
-            arr.set(i, temp);
+        List<Integer> list = new ArrayList<>(arr.size());
+        for (int i = d; i < arr.size(); i++){
+            list.add(arr.get(i));
         }
-        return arr;
+        for (int i = 0; i < d; i++){
+            list.add(arr.get(i));
+        }
+        return list;
     }
 
     /**
