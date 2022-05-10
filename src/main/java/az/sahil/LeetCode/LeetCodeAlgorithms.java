@@ -2,6 +2,7 @@ package az.sahil.LeetCode;
 
 import lombok.SneakyThrows;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
@@ -10,9 +11,7 @@ public class LeetCodeAlgorithms {
 
     @SneakyThrows
     public static void main(String[] args) {
-
-        boolean a = true;
-
+        /**
         first:
         {
             System.out.println("First started");
@@ -28,7 +27,7 @@ public class LeetCodeAlgorithms {
                 System.out.println("Second completed");
             }
             System.out.println("First completed");
-        }
+        }*/
 
 
 //        int i = 100, j = 200 ;
@@ -41,6 +40,8 @@ public class LeetCodeAlgorithms {
 //        System.out.println(new Date().getTime());
 //        System.out.println(romanToInt2("MMMXLV"));
 //        System.out.println(new Date().getTime());
+
+        System.out.println(findMedianSortedArrays(new int[]{1,2}, new int[]{3,4}));
 
     }
 
@@ -185,6 +186,49 @@ public class LeetCodeAlgorithms {
             result = result * 10 + mod;
         }
         return value == result;
+    }
+
+    /**
+     * Remove Duplicates from Sorted Array
+     * <a href="https://leetcode.com/problems/remove-duplicates-from-sorted-array">https://leetcode.com/problems/remove-duplicates-from-sorted-array</a>
+     */
+    public static int removeDuplicates(int[] nums) {
+        int count = nums.length > 0 ? 1 : 0;
+        for (int i = 1; i < nums.length; i++){
+            if (nums[i-1] != nums[i]){
+                nums[count] = nums[i];
+                count++;
+            }
+        }
+        return count;
+    }
+
+
+    /**
+     * Median of Two Sorted Arrays
+     * <a href="https://leetcode.com/problems/median-of-two-sorted-arrays">https://leetcode.com/problems/median-of-two-sorted-arrays</a>
+     */
+    public static double findMedianSortedArrays(int[] nums1, int[] nums2) {
+        int firstLen = nums1.length;
+        int secondLen = nums2.length;
+        int[] mergeArr = new int[firstLen + secondLen];
+        for(int i = 0; i < firstLen; i++)
+            mergeArr[i] = nums1[i];
+        for(int i = firstLen; i < mergeArr.length; i++)
+            mergeArr[i] = nums2[i-firstLen];
+
+        Arrays.sort(mergeArr);
+
+        int sumLen = mergeArr.length - 1;
+        int median = sumLen / 2;
+        int modal = sumLen % 2;
+        double result;
+        if(modal == 0){
+            result = mergeArr[median];
+        }else{
+            result = ((double) mergeArr[median] + mergeArr[median + 1]) / 2;
+        }
+        return result;
     }
 
 }

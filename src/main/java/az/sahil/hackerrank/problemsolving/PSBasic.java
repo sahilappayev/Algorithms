@@ -1,32 +1,11 @@
 package az.sahil.hackerrank.problemsolving;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class PSBasic {
 
     public static void main(String[] args) {
-//        SinglyLinkedListNode node1 = new SinglyLinkedListNode(383);
-//        SinglyLinkedListNode node2 = new SinglyLinkedListNode(484);
-//        SinglyLinkedListNode node3 = new SinglyLinkedListNode(392);
-//        SinglyLinkedListNode node4 = new SinglyLinkedListNode(475);
-//        SinglyLinkedListNode node5 = new SinglyLinkedListNode(321);
-//        node1.next = node2;
-//        node2.next = node3;
-//        node3.next = node4;
-//        node4.next = node5;
-//
-//        SinglyLinkedListNode result = insertNodeAtHead(node1, 5);
-//
-//        while (result.next != null){
-//            System.out.println(result.data);
-//            result = result.next;
-//        }
-
-
-        System.out.println(rotateLeft(4, Arrays.asList(1, 2, 3, 4, 5)));
-
 
     }
 
@@ -94,10 +73,10 @@ public class PSBasic {
      */
     public static List<Integer> rotateLeft(int d, List<Integer> arr) {
         List<Integer> list = new ArrayList<>(arr.size());
-        for (int i = d; i < arr.size(); i++){
+        for (int i = d; i < arr.size(); i++) {
             list.add(arr.get(i));
         }
-        for (int i = 0; i < d; i++){
+        for (int i = 0; i < d; i++) {
             list.add(arr.get(i));
         }
         return list;
@@ -145,12 +124,8 @@ public class PSBasic {
      * <a href="https://www.hackerrank.com/challenges/insert-a-node-at-the-head-of-a-linked-list/problem?isFullScreen=true">https://www.hackerrank.com/challenges/insert-a-node-at-the-head-of-a-linked-list/problem?isFullScreen=true</a>
      */
     static SinglyLinkedListNode insertNodeAtHead(SinglyLinkedListNode llist, int data) {
-        SinglyLinkedListNode result = null;
-        while (llist.next != null) {
-            result = new SinglyLinkedListNode(llist.data);
-            result.next = llist;
-            llist = llist.next;
-        }
-        return result;
+        SinglyLinkedListNode newNode = new SinglyLinkedListNode(data);
+        newNode.next = llist;
+        return newNode;
     }
 }
