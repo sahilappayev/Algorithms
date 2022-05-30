@@ -12,22 +12,22 @@ public class LeetCodeAlgorithms {
     @SneakyThrows
     public static void main(String[] args) {
         /**
-        first:
-        {
-            System.out.println("First started");
-            second:
-            {
-                System.out.println("Second started");
-                third:
-                {
-                    System.out.println("Third started");
-                    if (true) break second;
-                    System.out.println("Third completed");
-                }
-                System.out.println("Second completed");
-            }
-            System.out.println("First completed");
-        }*/
+         first:
+         {
+         System.out.println("First started");
+         second:
+         {
+         System.out.println("Second started");
+         third:
+         {
+         System.out.println("Third started");
+         if (true) break second;
+         System.out.println("Third completed");
+         }
+         System.out.println("Second completed");
+         }
+         System.out.println("First completed");
+         }*/
 
 
 //        int i = 100, j = 200 ;
@@ -41,7 +41,7 @@ public class LeetCodeAlgorithms {
 //        System.out.println(romanToInt2("MMMXLV"));
 //        System.out.println(new Date().getTime());
 
-        System.out.println(findMedianSortedArrays(new int[]{1,2}, new int[]{3,4}));
+        System.out.println(findMedianSortedArrays(new int[]{1, 2}, new int[]{3, 4}));
 
     }
 
@@ -194,8 +194,8 @@ public class LeetCodeAlgorithms {
      */
     public static int removeDuplicates(int[] nums) {
         int count = nums.length > 0 ? 1 : 0;
-        for (int i = 1; i < nums.length; i++){
-            if (nums[i-1] != nums[i]){
+        for (int i = 1; i < nums.length; i++) {
+            if (nums[i - 1] != nums[i]) {
                 nums[count] = nums[i];
                 count++;
             }
@@ -212,10 +212,10 @@ public class LeetCodeAlgorithms {
         int firstLen = nums1.length;
         int secondLen = nums2.length;
         int[] mergeArr = new int[firstLen + secondLen];
-        for(int i = 0; i < firstLen; i++)
+        for (int i = 0; i < firstLen; i++)
             mergeArr[i] = nums1[i];
-        for(int i = firstLen; i < mergeArr.length; i++)
-            mergeArr[i] = nums2[i-firstLen];
+        for (int i = firstLen; i < mergeArr.length; i++)
+            mergeArr[i] = nums2[i - firstLen];
 
         Arrays.sort(mergeArr);
 
@@ -223,12 +223,29 @@ public class LeetCodeAlgorithms {
         int median = sumLen / 2;
         int modal = sumLen % 2;
         double result;
-        if(modal == 0){
+        if (modal == 0) {
             result = mergeArr[median];
-        }else{
+        } else {
             result = ((double) mergeArr[median] + mergeArr[median + 1]) / 2;
         }
         return result;
+    }
+
+    /**
+     * Container With Most Water (Medium)
+     * <a href="https://leetcode.com/problems/container-with-most-water/">https://leetcode.com/problems/container-with-most-water/</a>
+     */
+    public static int maxArea(int[] height) {
+        int maxValue = 0;
+        for (int i = 0; i < height.length; i++) {
+            for (int j = height.length - 1; j > i; j--) {
+                int h = Math.min(height[i], height[j]);
+                int w = j - i;
+                int value = w * h;
+                maxValue = Math.max(maxValue, (value));
+            }
+        }
+        return maxValue;
     }
 
 }

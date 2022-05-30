@@ -3,6 +3,9 @@ package az.sahil.hackerrank.problemsolving;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ *  Problem Solving (Basic)
+ */
 public class PSBasic {
 
     public static void main(String[] args) {
