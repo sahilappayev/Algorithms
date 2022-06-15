@@ -19,14 +19,11 @@ public class QuickSorting {
 
 
     public static void quickSort(int[] input, int start, int end) {
-
-        if (end - start < 2) {
-            return;
+        if (start < end) {
+            int pivotIndex = partition(input, start, end);
+            quickSort(input, start, pivotIndex);
+            quickSort(input, pivotIndex + 1, end);
         }
-
-        int pivotIndex = partition(input, start, end);
-        quickSort(input, start, pivotIndex);
-        quickSort(input, pivotIndex + 1, end);
     }
 
     public static int partition(int[] input, int start, int end) {
